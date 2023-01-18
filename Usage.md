@@ -18,12 +18,12 @@ Use the launch files based on your own needs. If you need only simulate the vehi
 With the package **mavros_off_board**  launch the system in a simulated environment 
 
 ```bash
-cd PX4-Autopilot  
-DONT_RUN=1 make px4_sitl_default gazebo
-source ~/catkin_ws/devel/setup.bash
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+cd <PX4-Autopilot_clone>
+DONT_RUN=1 make px4_sitl_default gazebo_iris
+source ~/catkin_ws/devel/setup.bash    
+source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo/sitl_gazebo
 roslaunch mavros_off_board mavros_posix_sitl.launch
 ```
 
