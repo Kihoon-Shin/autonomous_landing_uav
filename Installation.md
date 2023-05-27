@@ -74,7 +74,7 @@ Once the PX4 SITL is installed, create your own model of the F450 model with the
 4. Create an airframe file under `ROMFS/px4fmu_common/init.d-posix/airframes` (This can be based off the iris or 
     solo airframe files), give it a number (for example 1076) and name it 1076_gazebo_quad_f450_camera. (You can find the 
     airframe file at `mavros_off_board/files`)
-5. Add the airframe file, for example `1076_gazebo_quad_f450_camera` to `ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt` at the bottom of the list starting with `px4_add_romfs_files(...`
+5. Add the airframe file, for example `1076_gazebo-classic_quad_f450_camera` to `ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt` at the bottom of the list starting with `px4_add_romfs_files(...`
 6. Add the airframe name (quad_f450_camera) to the file `src/modules/simulation/simulator_mavlink/sitl_targets_gazebo.cmake` in the command that starts with `set(models …` as-well as the world file `grass_pad` to the line starting with `set(worlds...`
 7. Copy the models located at `mavros_off_board/worlds/gazebo` into `.gazebo/models`. In case the folder 
    `models` does not exist within `.gazebo`, create it first.
