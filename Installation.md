@@ -72,7 +72,8 @@ Once the PX4 SITL is installed, create your own model of the F450 model with the
 2. Create the following files under `Tools/simulation/gazebo/sitl_gazebo/models/quad_f450_camera`: model.config and quad_f450_camera.sdf (The sdf file and model.config is located  in `mavros_off_board/sdf`). Additionally, create the folder *meshes* and *urdf* and add the files in  `mavros_off_board/urdf`,  `mavros_off_board/meshes`
 3. Create a world file in `Tools/simulation/gazebo/sitl_gazebo/worlds` called grass_pad.world (file located  in `mavros_off_board/worlds`)
 4. Create an airframe file under `ROMFS/px4fmu_common/init.d-posix/airframes` (This can be based off the iris or 
-    solo airframe files), give it a number (for example 1076) and name it 1076_gazebo-classic_quad_f450_camera. (copy and paste the '10016_none_iris' file in the same folder(basic iris model file)
+    solo airframe files), give it a number (for example 1076) and name it 1076_gazebo-classic_quad_f450_camera. (copy and paste the '10016_none_iris' file in the same folder(basic iris model file))
+    * 기존의 repository데로 하였더니 f450 모델이 spawn은 되지만 'commander takeoff'를 입력시 'takeoff detected'메세지는 뜨지만 프로펠러가 회전하지 않으면서 드론      드론이 이륙하
 5. Add the airframe file, for example `1076_gazebo-classic_quad_f450_camera` to `ROMFS/px4fmu_common/init.d-posix/airframes/CMakeLists.txt` at the bottom of the list starting with `px4_add_romfs_files(...`
 6. Add the airframe name (quad_f450_camera) to the file `src/modules/simulation/simulator_mavlink/sitl_targets_gazebo.cmake` in the command that starts with `set(models …` as-well as the world file `grass_pad` to the line starting with `set(worlds...`
 7. Copy the models located at `mavros_off_board/worlds/gazebo` into `.gazebo/models`. In case the folder 
